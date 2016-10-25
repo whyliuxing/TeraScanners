@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TeraScanners", "TeraScanners\TeraScanners.vcxproj", "{15E9B9DC-F243-4619-878E-1184F21E5D17}"
+	ProjectSection(ProjectDependencies) = postProject
+		{71634F26-86F5-4B5F-8E27-D66F58542234} = {71634F26-86F5-4B5F-8E27-D66F58542234}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpcodeDll", "OpcodeDll\OpcodeDll.vcxproj", "{71634F26-86F5-4B5F-8E27-D66F58542234}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15E9B9DC-F243-4619-878E-1184F21E5D17}.Debug|Win32.ActiveCfg = Debug|Win32
+		{15E9B9DC-F243-4619-878E-1184F21E5D17}.Debug|Win32.Build.0 = Debug|Win32
+		{15E9B9DC-F243-4619-878E-1184F21E5D17}.Release|Win32.ActiveCfg = Release|Win32
+		{15E9B9DC-F243-4619-878E-1184F21E5D17}.Release|Win32.Build.0 = Release|Win32
+		{71634F26-86F5-4B5F-8E27-D66F58542234}.Debug|Win32.ActiveCfg = Debug|Win32
+		{71634F26-86F5-4B5F-8E27-D66F58542234}.Debug|Win32.Build.0 = Debug|Win32
+		{71634F26-86F5-4B5F-8E27-D66F58542234}.Release|Win32.ActiveCfg = Release|Win32
+		{71634F26-86F5-4B5F-8E27-D66F58542234}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
