@@ -11,7 +11,7 @@ Based on work from luxtau and Gothos from a [RaGEZONE thread](http://forum.ragez
 
 Build the TeraScanners project (32-bit only). It'll build the OpcodeDll project as a dependency.
 
-Alternatively, you can get the binaries from the releases page on GitHub. You will probably need to install the [VC++ 2013 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=40784) first.
+Alternatively, you can get the binaries from the [releases page on GitHub](https://github.com/meishuu/TeraScanners/releases). You will probably need to install the [VC++ 2013 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=40784) first.
 
 ## Usage
 
