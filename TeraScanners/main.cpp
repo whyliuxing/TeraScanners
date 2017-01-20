@@ -9,31 +9,31 @@
 #include "ScannerSysmsg.h"
 
 int main() {
-	// find window
-	HWND hwnd = FindWindowA(NULL, "TERA");
-	if (!hwnd) {
-		std::cout << "cannot find TERA" << std::endl;;
-		return 1;
-	}
+  // find window
+  HWND hwnd = FindWindowA(NULL, "TERA");
+  if (!hwnd) {
+    std::cout << "cannot find TERA" << std::endl;;
+    return 1;
+  }
 
-	// get handle
-	DWORD pid;
-	GetWindowThreadProcessId(hwnd, &pid);
-	HANDLE pHandle = OpenProcess(PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION | PROCESS_VM_OPERATION | PROCESS_VM_READ | PROCESS_VM_WRITE, FALSE, pid);
-	if (pHandle == INVALID_HANDLE_VALUE) {
-		std::cout << "cannot open process" << std::endl;
-		return 1;
-	}
+  // get handle
+  DWORD pid;
+  GetWindowThreadProcessId(hwnd, &pid);
+  HANDLE pHandle = OpenProcess(PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION | PROCESS_VM_OPERATION | PROCESS_VM_READ | PROCESS_VM_WRITE, FALSE, pid);
+  if (pHandle == INVALID_HANDLE_VALUE) {
+    std::cout << "cannot open process" << std::endl;
+    return 1;
+  }
 
-	// load scanners
-	std::cout << "initializing scanners" << std::endl;
-	std::vector<IScanner*> arrScanners;
-	arrScanners.push_back(new ScannerEncryption());
+  // load scanners
+  std::cout << "initializing scanners" << std::endl;
+  std::vector<IScanner*> arrScanners;
+  arrScanners.push_back(new ScannerEncryption());
   arrScanners.push_back(new ScannerSysmsg());
   arrScanners.push_back(new ScannerOpcodes(pHandle));
-	
-	// start scans
-	std::cout << "starting scan" << std::endl;
+  
+  // start scans
+  std::cout << "starting scan" << std::endl;
 
   uint32_t aStart = 0x00000000;
   uint32_t aEnd = 0xFFFF0000;
@@ -80,7 +80,7 @@ int main() {
     if (arrScanners.size() == 0) break;
   }
 
-	// clean up
-	CloseHandle(pHandle);
-	return 0;
+  // clean up
+  CloseHandle(pHandle);
+  return 0;
 }

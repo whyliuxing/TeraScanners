@@ -55,7 +55,7 @@ DWORD WINAPI Thread(LPVOID lpParameter) {
   }
   
   fOutput.close();
-	return 1;
+  return 1;
 }
 
 BOOL WINAPI DllMain(HANDLE hModule, DWORD fdwReason, LPVOID lpReserved) {
@@ -63,5 +63,5 @@ BOOL WINAPI DllMain(HANDLE hModule, DWORD fdwReason, LPVOID lpReserved) {
     Thread(NULL);
   }
   
-	return TRUE;
+  return TRUE;
 }
