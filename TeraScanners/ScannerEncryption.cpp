@@ -1,5 +1,6 @@
 #include "ScannerEncryption.h"
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 
@@ -23,6 +24,10 @@ uint32_t ReadInt(unsigned char* buf) {
   }
 
   return (buf[3] << 24) | (buf[4] << 16) | (buf[5] << 8) | buf[6];
+}
+
+void WriteHex(std::ofstream& stream, unsigned int num) {
+  stream << ' ' << std::setw(8) << num;
 }
 
 bool ScannerEncryption::isDone() {
@@ -73,11 +78,23 @@ void ScannerEncryption::scan(unsigned char* buf, size_t size, uint32_t offset) {
     auto iv4 = ReadInt(buf + base + 54);
     
     std::ofstream fOutput(OUTPUT_FILE);
+    fOutput.setf(std::ios::hex, std::ios::basefield);
     fOutput.fill('0');
-    fOutput.width(8);
-    fOutput << std::hex << std::endl;
-    fOutput << "key: " << key1 << " " << key2 << " " << key3 << " " << key4 << std::endl;
-    fOutput << "iv: " << iv1 << " " << iv2 << " " << iv3 << " " << iv4 << std::endl;
+
+    fOutput << "key:";
+    WriteHex(fOutput, key1);
+    WriteHex(fOutput, key2);
+    WriteHex(fOutput, key3);
+    WriteHex(fOutput, key4);
+    fOutput << std::endl;
+
+    fOutput << "iv:";
+    WriteHex(fOutput, iv1);
+    WriteHex(fOutput, iv2);
+    WriteHex(fOutput, iv3);
+    WriteHex(fOutput, iv4);
+    fOutput << std::endl;
+
     fOutput.close();
     break;
   }
